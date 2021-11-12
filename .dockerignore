@@ -1,0 +1,15 @@
+#**
+
+#Allowed
+#!api/
+#!api_yamdb/
+#!auth/
+#!reviews/
+#!templates/
+#!manage.py
+#!requirements.txt
+tests/
+venv/
+
+.idea/
+__pycache__/
