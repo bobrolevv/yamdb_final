@@ -21,6 +21,9 @@ jobs:
     - name: Test with flake8 and django tests
       run: |
         pytest
+#        python -m flake8
+#        cd infra_project/
+#        python manage.py test
 
   build_and_push_to_docker_hub:
     name: Push Docker image to Docker Hub
@@ -28,16 +31,16 @@ jobs:
     needs: tests
     steps:
       - name: Check out the repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@v2 # Проверяет доступность репозитория DockerHub для workflow
       - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v1
+        uses: docker/setup-buildx-action@v1 # Вызывает сборщик контейнеров docker
       - name: Login to Docker
-        uses: docker/login-action@v1
+        uses: docker/login-action@v1 # Запуск скрипта авторизации на DockerHub
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
       - name: Push to Docker Hub
-        uses: docker/build-push-action@v2
+        uses: docker/build-push-action@v2 # Выполняет push образа в DockerHub1
         with:
           push: true
           tags: bobrolevv/yamdb_final:latest
@@ -52,22 +55,12 @@ jobs:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USER }}
           key: ${{ secrets.SSH_KEY }}
-          passphrase: ${{ secrets.PASSPHRASE }}
+          passphrase: ${{ secrets.PASSPHRASE }} # Если ваш ssh-ключ защищён фразой-паролем1
           script: |
             sudo docker pull bobrolevv/yamdb_final:latest
-            sudo docker-compose stop
-            sudo docker-compose rm web
-
-            touch .env
-
-            echo DB_ENGINE=${{ secrets.DB_ENGINE }} >> .env
-            echo DB_NAME=${{ secrets.DB_NAME }} >> .env
-            echo POSTGRES_USER=${{ secrets.POSTGRES_USER }} >> .env
-            echo POSTGRES_PASSWORD=${{ secrets.POSTGRES_PASSWORD }} >> .env
-            echo DB_HOST=${{ secrets.DB_HOST }} >> .env
-            echo DB_PORT=${{ secrets.DB_PORT }} >> .env
-
-            sudo docker-compose up -d
+            sudo docker stop $(sudo docker ps -a -q)
+            sudo docker-compose up
+#            sudo docker run --rm -d -p 5000:5000 bobrolevv/yamdb_final:latest
 
   send_message:
     runs-on: ubuntu-latest
