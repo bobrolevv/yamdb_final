@@ -9,7 +9,6 @@ services:
       - ./.env
 
   web:
-#    build: .
     image: bobrolevv/yamdb_final:latest
     restart: always
     ports:
