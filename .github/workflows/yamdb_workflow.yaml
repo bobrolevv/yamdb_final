@@ -55,12 +55,12 @@ jobs:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USER }}
           key: ${{ secrets.SSH_KEY }}
-          passphrase: ${{ secrets.PASSPHRASE }} # Если ваш ssh-ключ защищён фразой-паролем1
+          passphrase: ${{ secrets.PASSPHRASE }} # Если ваш ssh-ключ защищён фразой-паролем111
           script: |
             sudo docker pull bobrolevv/yamdb_final:latest
             sudo docker stop $(sudo docker ps -a -q)
             sudo docker-compose up
-#            sudo docker run --rm -d -p 5000:5000 bobrolevv/yamdb_final:latest1
+#            sudo docker run --rm -d -p 5000:5000 bobrolevv/yamdb_final:latest
 
   send_message:
     runs-on: ubuntu-latest
