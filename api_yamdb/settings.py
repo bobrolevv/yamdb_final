@@ -2,6 +2,7 @@ import os
 from datetime import timedelta
 
 from dotenv import dotenv_values
+
 config = dotenv_values('.env')
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
