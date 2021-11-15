@@ -58,7 +58,7 @@ jobs:
           passphrase: ${{ secrets.PASSPHRASE }} # Если ваш ssh-ключ защищён фразой-паролем111
           script: |
             sudo docker pull bobrolevv/yamdb_final:latest
-            sudo docker stop $(sudo docker ps -a -q)
+#            sudo docker stop $(sudo docker ps -a -q)
             sudo docker-compose up
 #            sudo docker run --rm -d -p 5000:5000 bobrolevv/yamdb_final:latest
 
