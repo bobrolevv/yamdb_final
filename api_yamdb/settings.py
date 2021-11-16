@@ -15,14 +15,14 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # SECURITY WARNING: keep the secret key used in production secret!
 # SECRET_KEY = 'p&l%385148kslhtyn^##a1)ilz@4zqj=rq&agdol^##zgl9(vs'# config['SECRET_KEY']
-SECRET_KEY = os.getenv('SECRET_KEY', default='p&l%385148kslhtyn^##a1)ilz@4zqj=rq&agdol^##zgl9(vs')
+SECRET_KEY = os.environ.get('SECRET_KEY', default='p&l%385148kslhtyn^##a1)ilz@4zqj=rq&agdol^##zgl9(vs')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = False  # bool(config['DEBUG'])
-DEBUG = os.getenv("DEBUG", default=False)
+DEBUG = os.environ.get("DEBUG", default=False)
 
 # ALLOWED_HOSTS = ['*']  # config['ALLOWED_HOSTS']
-ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', default='*').split(',')  # config['ALLOWED_HOSTS']1
+ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', default='*').split(',')  # config['ALLOWED_HOSTS']1
 
 # Application definition
 INSTALLED_APPS = [
