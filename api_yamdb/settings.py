@@ -74,14 +74,26 @@ WSGI_APPLICATION = 'api_yamdb.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': config['DB_ENGINE'],
+#         'NAME': config['POSTGRES_DB'],
+#         'USER': config['POSTGRES_USER'],
+#         'PASSWORD': config['POSTGRES_PASSWORD'],
+#         'HOST': config['DB_HOST'],
+#         'PORT': config['DB_PORT'],
+#
+#     }
+# }
+
 DATABASES = {
     'default': {
-        'ENGINE': config['DB_ENGINE'],
-        'NAME': config['POSTGRES_DB'],
-        'USER': config['POSTGRES_USER'],
-        'PASSWORD': config['POSTGRES_PASSWORD'],
-        'HOST': config['DB_HOST'],
-        'PORT': config['DB_PORT'],
+        'ENGINE': os.environ.get('DB_ENGINE', default='django.db.backends.postgresql'),
+        'NAME': os.environ.get('POSTGRES_DB', default='yam_db'),
+        'USER': os.environ.get('POSTGRES_USER', default='postgres1'),
+        'PASSWORD': os.environ.get('POSTGRES_PASSWORD', default='postgres'),
+        'HOST': os.environ.get('DB_HOST', default='db'),
+        'PORT': os.environ.get('DB_PORT', default='5432'),
 
     }
 }
