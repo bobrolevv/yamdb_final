@@ -22,7 +22,7 @@ SECRET_KEY = os.getenv('SECRET_KEY', default='p&l%385148kslhtyn^##a1)ilz@4zqj=rq
 DEBUG = os.getenv("DEBUG", default=False)
 
 # ALLOWED_HOSTS = ['*']  # config['ALLOWED_HOSTS']
-ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', default='*')  # config['ALLOWED_HOSTS']
+ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', default='*').split(',')  # config['ALLOWED_HOSTS']
 
 # Application definition
 INSTALLED_APPS = [
