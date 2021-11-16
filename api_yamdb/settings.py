@@ -29,8 +29,8 @@ SECRET_KEY = os.environ.get('SECRET_KEY', default='p&l%385148kslhtyn^##a1)ilz@4z
 DEBUG = os.environ.get("DEBUG", default=False)
 
 # ALLOWED_HOSTS = ['*']
-# ALLOWED_HOSTS = config['ALLOWED_HOSTS']
-ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', default='*').split(',')
+ALLOWED_HOSTS = config['ALLOWED_HOSTS']
+# ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', default='*').split(',')
 
 # Application definition
 INSTALLED_APPS = [
