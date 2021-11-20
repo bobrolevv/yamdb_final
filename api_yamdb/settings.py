@@ -3,7 +3,7 @@ from datetime import timedelta
 
 from dotenv import dotenv_values, load_dotenv
 
-config = dotenv_values('.env')
+config = dotenv_values('../!ignor/.env')
 load_dotenv()
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)

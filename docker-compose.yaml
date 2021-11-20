@@ -6,7 +6,7 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data/
     env_file:
-      - .env
+      - "!ignor/.env"
 
   web:
     image: bobrolevv/yamdb_final:latest
@@ -19,7 +19,7 @@ services:
     depends_on:
       - db
     env_file:
-      - .env
+      - "!ignor/.env"
 
   nginx:
     image: nginx:1.19.3
