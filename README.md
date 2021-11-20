@@ -1,6 +1,6 @@
 # Это проект Yamdb 
  
-[Ссылка на проект](http://51.250.4.170/api/v1/ "")
+[Ссылка на проект](http://51.250.4.170/api/v1/ "---")
 
 ## Здесь краткое описание проекта: 
     
@@ -21,4 +21,4 @@
 ### Команда для заполнения базы начальными данными:
     python3 manage.py dumpdata > fixtures.json
 
-![workflow](https://github.com/bobrolevv/yamdb_final/actions/workflows/yamdb_workflow.yml/badge.svg)
+[workflow](https://github.com/bobrolevv/yamdb_final/actions/workflows/yamdb_workflow.yml/badge.svg)
