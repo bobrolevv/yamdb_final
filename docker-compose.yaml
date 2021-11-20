@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   db:
-    image: postgres:latest
+    image: postgres:14.1-alpine
     volumes:
       - postgres_data:/var/lib/postgresql/data/
     env_file:
@@ -11,8 +11,8 @@ services:
   web:
     image: bobrolevv/yamdb_final:latest
     restart: always
-    ports:
-      - "8000:8000"
+#    ports:
+#      - "8000:8000"
     volumes:
       - static_value:/app/static/
       - media_value:/app/media/
@@ -37,4 +37,3 @@ volumes:
   static_value:
   media_value:
 
-#
