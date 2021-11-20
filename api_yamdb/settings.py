@@ -3,7 +3,7 @@ from datetime import timedelta
 
 from dotenv import dotenv_values, load_dotenv
 
-config = dotenv_values('../!ignor/.env')
+config = dotenv_values('../.env')
 load_dotenv()
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -29,8 +29,8 @@ SECRET_KEY = os.environ.get('SECRET_KEY', default='p&l%385148kslhtyn^##a1)ilz@4z
 DEBUG = os.environ.get("DEBUG", default=False)
 
 # ALLOWED_HOSTS = ['*']
-ALLOWED_HOSTS = config['ALLOWED_HOSTS']
-# ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', default='*').split(',')
+# ALLOWED_HOSTS = config['ALLOWED_HOSTS']
+ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', default='*').split(',')
 
 # Application definition
 INSTALLED_APPS = [
