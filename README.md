@@ -21,4 +21,4 @@
 ### Команда для заполнения базы начальными данными:
     python3 manage.py dumpdata > fixtures.json
 
-[workflow](https://github.com/bobrolevv/yamdb_final/actions/workflows/yamdb_workflow.yml/badge.svg)
+![workflow](https://github.com/bobrolevv/yamdb_final/actions/workflows/yamdb_workflow.yaml/badge.svg)
